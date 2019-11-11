@@ -1,0 +1,16 @@
+#import * from './generated/prisma.graphql'
+
+type Mutation {
+  # We don't have to define the `Item` type in this file. It's already defined in `prisma.graphql` so importing all from that file as above finds the `Item` type in there
+  createItem(
+    title: String
+    description: String
+    price: Int
+    image: String
+    largeImage: String
+  ): Item!
+}
+
+type Query {
+  items: [Item]!
+}
