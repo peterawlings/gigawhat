@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Meta from "./Meta";
-import styled, { ThemeProvider, injectGlobal } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const theme = {
   red: "#FF0000",
@@ -24,7 +24,7 @@ const Inner = styled.div`
   padding: 2rem;
 `;
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   @font-face{
     font-family: 'radnika_next';
     src: url('/static/radnikanext-medium-webfont.woff2')
@@ -60,6 +60,7 @@ class Page extends Component {
           <Meta />
           <Header />
           <Inner>{this.props.children}</Inner>
+          <GlobalStyle />
         </StyledPage>
       </ThemeProvider>
     );
