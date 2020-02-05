@@ -3,9 +3,11 @@ import React from "react";
 const List = ({ list }) => {
   return (
     <div>
-      {list.map(listing => (
-        <div>{listing.venue}</div>
-      ))}
+      <ul>
+        {list.map(listing => (
+          <li>{listing.venue}</li>
+        ))}
+      </ul>
     </div>
   );
 };

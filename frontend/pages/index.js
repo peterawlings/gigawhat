@@ -3,6 +3,7 @@ import Search from "../components/Search";
 import List from "../components/List";
 
 const Index = ({ data }) => {
+  console.log(data);
   return (
     <>
       <Search />

@@ -6,7 +6,27 @@ const Search = props => {
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
-      <button type="submit">Submit</button>
+      <label htmlfor="all">
+        All
+        <input id="all" type="checkbox" />
+      </label>
+      <label htmlfor="all">
+        HipHop
+        <input id="all" type="checkbox" />
+      </label>
+      <label htmlfor="all">
+        Funk/Soul
+        <input id="all" type="checkbox" />
+      </label>
+      <label htmlfor="all">
+        House
+        <input id="all" type="checkbox" />
+      </label>
+      <label htmlfor="all">
+        Disco
+        <input id="all" type="checkbox" />
+      </label>
+      <button type="submit">Search Near Me</button>
     </form>
   );
 };
