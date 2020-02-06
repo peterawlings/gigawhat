@@ -1,30 +1,52 @@
-const Search = props => {
-  console.log({ props });
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
+const Search = ({ updateSearch }) => {
+  // const [state, updateState] = useState({});
+
+  // console.log({ props });
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  // };
 
   return (
     <form onSubmit={e => handleSubmit(e)}>
-      <label htmlfor="all">
+      <label htmlFor="all">
         All
-        <input id="all" type="checkbox" />
+        <input id="all" type="checkbox" value="all" onChange={updateSearch} />
       </label>
-      <label htmlfor="all">
+      <label htmlFor="hiphop">
         HipHop
-        <input id="all" type="checkbox" />
+        <input
+          id="hiphop"
+          type="checkbox"
+          value="hiphop"
+          onChange={updateSearch}
+        />
       </label>
-      <label htmlfor="all">
+      <label htmlFor="funkSoul">
         Funk/Soul
-        <input id="all" type="checkbox" />
+        <input
+          id="funkSoul"
+          type="checkbox"
+          value="funkSoul"
+          onChange={updateSearch}
+        />
       </label>
-      <label htmlfor="all">
+      <label htmlFor="house">
         House
-        <input id="all" type="checkbox" />
+        <input
+          id="house"
+          type="checkbox"
+          value="house"
+          onChange={updateSearch}
+        />
       </label>
-      <label htmlfor="all">
+      <label htmlFor="disco">
         Disco
-        <input id="all" type="checkbox" />
+        <input
+          id="disco"
+          type="checkbox"
+          value="disco"
+          onChange={updateSearch}
+        />
       </label>
       <button type="submit">Search Near Me</button>
     </form>

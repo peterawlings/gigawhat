@@ -5,7 +5,7 @@ const List = ({ list }) => {
     <div>
       <ul>
         {list.map(listing => (
-          <li>{listing.venue}</li>
+          <li>{`${listing.venue} + ${listing.artistName}`}</li>
         ))}
       </ul>
     </div>

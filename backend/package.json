@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "json-server --watch resources/generate.js --port 3004"
+    "dev": "json-server --watch resources/generate.json --port 3004"
   },
   "keywords": [],
   "author": "",

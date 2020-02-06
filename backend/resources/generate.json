@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "genre": ["hip hop"],
+      "artistName": "Bonobo",
+      "address": {
+        "street": "440 Glenmore Avenue",
+        "suburb": "Glebe",
+        "postCode": 2280
+      },
+      "price": 10,
+      "venue": "4 Pines"
+    },
+    {
+      "id": 1,
+      "genre": ["hip hop"],
+      "artistName": "Duan and only",
+      "address": {
+        "street": "350 Hart Street",
+        "suburb": "Waterloo",
+        "postCode": 2315
+      },
+      "price": 20,
+      "venue": "Ivanhoe"
+    },
+    {
+      "id": 2,
+      "genre": ["folk"],
+      "artistName": "Duan and only",
+      "address": {
+        "street": "839 Bancroft Place",
+        "suburb": "Waterloo",
+        "postCode": 2294
+      },
+      "price": 20,
+      "venue": "4 Pines"
+    },
+    {
+      "id": 3,
+      "genre": ["deep house"],
+      "artistName": "Duan and only",
+      "address": {
+        "street": "367 Jardine Place",
+        "suburb": "Waterloo",
+        "postCode": 2425
+      },
+      "price": 20,
+      "venue": "Bavarian"
+    },
+    {
+      "id": 4,
+      "genre": ["soul"],
+      "artistName": "Duan and only",
+      "address": {
+        "street": "987 Lawrence Avenue",
+        "suburb": "Manly",
+        "postCode": 2436
+      },
+      "price": 10,
+      "venue": "Bavarian"
+    }
+  ]
+}

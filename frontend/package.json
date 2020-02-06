@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "install": "^0.13.0",
-    "isomorphic-unfetch": "^3.0.0"
+    "isomorphic-unfetch": "^3.0.0",
+    "swr": "^0.1.16",
+    "unfetch": "^4.1.0"
   }
 }
