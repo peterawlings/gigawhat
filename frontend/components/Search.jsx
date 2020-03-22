@@ -1,10 +1,12 @@
+import React from "react";
+
 const Search = ({ updateSearch }) => {
   // const [state, updateState] = useState({});
 
   // console.log({ props });
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  // };
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
 
   return (
     <form onSubmit={e => handleSubmit(e)}>

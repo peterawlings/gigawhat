@@ -2,62 +2,122 @@
   "data": [
     {
       "id": 0,
-      "genre": ["hip hop"],
-      "artistName": "Bonobo",
+      "genre": ["acoustic"],
+      "artistName": "Duan and only",
       "address": {
-        "street": "440 Glenmore Avenue",
-        "suburb": "Glebe",
-        "postCode": 2280
+        "street": "124 Seigel Street",
+        "suburb": "CBD",
+        "postCode": 2487
+      },
+      "price": 30,
+      "venue": "Ivanhoe"
+    },
+    {
+      "id": 1,
+      "genre": ["funk"],
+      "artistName": "Rolf",
+      "address": {
+        "street": "961 Plymouth Street",
+        "suburb": "Manly",
+        "postCode": 2185
+      },
+      "price": 10,
+      "venue": "Ivanhoe"
+    },
+    {
+      "id": 2,
+      "genre": ["house"],
+      "artistName": "Sgt Tan",
+      "address": {
+        "street": "274 Dekoven Court",
+        "suburb": "CBD",
+        "postCode": 2155
+      },
+      "price": 0,
+      "venue": "Ivanhoe"
+    },
+    {
+      "id": 3,
+      "genre": ["disco"],
+      "artistName": "Duan and only",
+      "address": {
+        "street": "552 Sumner Place",
+        "suburb": "Waterloo",
+        "postCode": 2157
       },
       "price": 10,
       "venue": "4 Pines"
     },
     {
-      "id": 1,
-      "genre": ["hip hop"],
+      "id": 4,
+      "genre": ["hiphop"],
+      "artistName": "Thievery Corporation",
+      "address": {
+        "street": "291 Tech Place",
+        "suburb": "Newtown",
+        "postCode": 2237
+      },
+      "price": 30,
+      "venue": "4 Pines"
+    },
+    {
+      "id": 5,
+      "genre": ["soul"],
       "artistName": "Duan and only",
       "address": {
-        "street": "350 Hart Street",
+        "street": "143 Kings Hwy",
+        "suburb": "Newtown",
+        "postCode": 2066
+      },
+      "price": 10,
+      "venue": "Bavarian"
+    },
+    {
+      "id": 6,
+      "genre": ["electro"],
+      "artistName": "Sgt Tan",
+      "address": {
+        "street": "363 Gerritsen Avenue",
+        "suburb": "Glebe",
+        "postCode": 2243
+      },
+      "price": 10,
+      "venue": "Ivanhoe"
+    },
+    {
+      "id": 7,
+      "genre": ["acoustic"],
+      "artistName": "Bonobo",
+      "address": {
+        "street": "365 Bleecker Street",
         "suburb": "Waterloo",
-        "postCode": 2315
+        "postCode": 2476
+      },
+      "price": 10,
+      "venue": "Ivanhoe"
+    },
+    {
+      "id": 8,
+      "genre": ["electro"],
+      "artistName": "Bonobo",
+      "address": {
+        "street": "297 Stillwell Avenue",
+        "suburb": "Manly",
+        "postCode": 2301
       },
       "price": 20,
       "venue": "Ivanhoe"
     },
     {
-      "id": 2,
+      "id": 9,
       "genre": ["folk"],
-      "artistName": "Duan and only",
+      "artistName": "Sgt Tan",
       "address": {
-        "street": "839 Bancroft Place",
-        "suburb": "Waterloo",
-        "postCode": 2294
+        "street": "741 Stockton Street",
+        "suburb": "Glebe",
+        "postCode": 2162
       },
-      "price": 20,
-      "venue": "4 Pines"
-    },
-    {
-      "id": 3,
-      "genre": ["deep house"],
-      "artistName": "Duan and only",
-      "address": {
-        "street": "367 Jardine Place",
-        "suburb": "Waterloo",
-        "postCode": 2425
-      },
-      "price": 20,
-      "venue": "Bavarian"
-    },
-    {
-      "id": 4,
-      "genre": ["soul"],
-      "artistName": "Duan and only",
-      "address": {
-        "street": "987 Lawrence Avenue",
-        "suburb": "Manly",
-        "postCode": 2436
-      },
-      "price": 10,
+      "price": 30,
       "venue": "Bavarian"
     }
   ]

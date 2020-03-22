@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import useSWR from "swr";
-import Search from "../components/Search";
 import List from "../components/List";
+import Search from "../components/Search";
 import fetcher from "../utils/fetch";
-import { useState } from "react";
 
 const Index = () => {
   const [state, updateState] = useState({});
@@ -18,11 +18,12 @@ const Index = () => {
   };
 
   console.log(state);
-  const { data, error } = useSWR(state.house, fetcher);
+  const { data, error } = useSWR("data?genre/", fetcher);
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
   return (
     <>
+      <div>Test</div>
       <Search updateSearch={handleChange} />
       <List list={data} />
     </>
