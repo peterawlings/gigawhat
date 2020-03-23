@@ -5,20 +5,13 @@ import Search from "../components/Search";
 import fetcher from "../utils/fetch";
 
 const Index = () => {
-  const [state, updateState] = useState({});
+  const [state, updateState] = useState("funk");
 
   const handleChange = e => {
-    const url = `?genre=${e.target.value}`;
-    updateState({
-      [e.target.value]: url
-    });
-    console.log({ url });
-
-    // return updateSearch(state);
+    updateState(e.target.value);
   };
 
-  console.log(state);
-  const { data, error } = useSWR("data?genre/", fetcher);
+  const { data, error } = useSWR(state, fetcher);
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
   return (
