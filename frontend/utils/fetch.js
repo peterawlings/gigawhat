@@ -3,7 +3,7 @@ import fetch from "unfetch";
 const API_URL = "http://localhost:3004/data";
 
 function buildUrl(path) {
-  return `${API_URL}?genre=${path}`;
+  return path.all ? `${API_URL}` : `${API_URL}?genre=${path}`;
 }
 
 async function fetcher(path) {
