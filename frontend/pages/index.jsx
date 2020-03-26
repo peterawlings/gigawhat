@@ -19,20 +19,8 @@ const Index = () => {
     )
   });
 
-  // const newstate = {
-  //   checkboxes: options.reduce(
-  //     (optionsAgg, option) => ({
-  //       ...optionsAgg,
-  //       [option]: false
-  //     }),
-  //     {}
-  //   )
-  // };
-
-  // console.log({ state });
-
   const handleChange = e => {
-    console.log({ state });
+    // console.log({ state });
     updateState({
       ...state,
       checkboxes: {
@@ -59,7 +47,25 @@ const Index = () => {
       </label>
     );
 
-  const { data, error } = useSWR(state, fetcher);
+  const stringCleanup = string => string.toLowerCase().replace(/\W/g, "");
+
+  const sortParams = checkboxes => {
+    const filters = Object.keys(checkboxes).filter(
+      checkbox => state.checkboxes[checkbox].checked
+    );
+    const reduce = filters.reduce((acc, filter) => {
+      return acc === ""
+        ? `${acc}?genre=${stringCleanup(filter)}`
+        : `${acc}&genre=${stringCleanup(filter)}`;
+    }, "");
+    return reduce;
+  };
+
+  const queryParams = sortParams(state.checkboxes).length
+    ? sortParams(state.checkboxes)
+    : "All";
+
+  const { data, error } = useSWR(queryParams, fetcher);
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
   return (
