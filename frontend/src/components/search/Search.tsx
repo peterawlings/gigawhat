@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import useSWR from "swr";
-import List from "../components/List";
-// import Search from "../components/Search";
-import fetcher from "../utils/fetch";
+import List from "../list";
+import fetcher from "../../utils/fetch";
 
-const Index = () => {
-  const options = ["Hip Hop", "House", "Funk / Soul", "Disco"];
+const options = ["Hip Hop", "House", "Funk / Soul", "Disco"];
+
+const Search = () => {
   const [state, updateState] = useState({
     checkboxes: options.reduce(
       (optionsAgg, option) => ({
@@ -19,7 +19,7 @@ const Index = () => {
     )
   });
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // console.log({ state });
     updateState({
       ...state,
@@ -33,23 +33,23 @@ const Index = () => {
     });
   };
 
-  const createCheckbox = option =>
-    console.log("this", state.checkboxes[option]) || (
-      <label htmlFor={state.checkboxes[option].label}>
-        {state.checkboxes[option].label}
-        <input
-          id={state.checkboxes[option].label}
-          type="checkbox"
-          value={state.checkboxes[option].label}
-          checked={state.checkboxes[option].checked}
-          onChange={handleChange}
-        />
-      </label>
-    );
+  const createCheckbox = (option: any) => (
+    <label htmlFor={state.checkboxes[option].label}>
+      {state.checkboxes[option].label}
+      <input
+        id={state.checkboxes[option].label}
+        type="checkbox"
+        value={state.checkboxes[option].label}
+        checked={state.checkboxes[option].checked}
+        onChange={handleChange}
+      />
+    </label>
+  );
 
-  const stringCleanup = string => string.toLowerCase().replace(/\W/g, "");
+  const stringCleanup = (string: string) =>
+    string.toLowerCase().replace(/\W/g, "");
 
-  const sortParams = checkboxes => {
+  const sortParams = (checkboxes: any) => {
     const filters = Object.keys(checkboxes).filter(
       checkbox => state.checkboxes[checkbox].checked
     );
@@ -71,7 +71,6 @@ const Index = () => {
   return (
     <>
       <div>Test</div>
-      {/* <Search updateSearch={handleChange} value={state} /> */}
       <form onSubmit={e => e.preventDefault()}>
         {options.map(option => createCheckbox(option))}
         <button type="submit">Search Near Me</button>
@@ -81,9 +80,4 @@ const Index = () => {
   );
 };
 
-export default Index;
-
-// Click on a check, that updates the state
-// Click on another, state now has 2
-// Click on one of them, state removes that
-// Query is built from the state
+export default Search;
