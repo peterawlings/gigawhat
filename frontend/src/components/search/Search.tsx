@@ -3,31 +3,41 @@ import useSWR from "swr";
 import List from "../list";
 import fetcher from "../../utils/fetch";
 
-const options = ["Hip Hop", "House", "Funk / Soul", "Disco"];
+const genres = ["Hip Hop", "House", "Funk / Soul", "Disco"];
+
+interface stateOptions {
+  checkboxes: {
+    [key: string]: {
+      checked: boolean;
+      label: string;
+    };
+  };
+}
+
+const stateOptions: stateOptions = {
+  checkboxes: genres.reduce(
+    (genreAgg, genre) => ({
+      ...genreAgg,
+      [genre]: {
+        label: genre,
+        checked: false
+      }
+    }),
+    {}
+  )
+};
 
 const Search = () => {
-  const [state, updateState] = useState({
-    checkboxes: options.reduce(
-      (optionsAgg, option) => ({
-        ...optionsAgg,
-        [option]: {
-          label: option,
-          checked: false
-        }
-      }),
-      {}
-    )
-  });
+  const [state, updateState] = useState(stateOptions);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log({ state });
     updateState({
       ...state,
       checkboxes: {
         ...state.checkboxes,
         [e.target.value]: {
           label: e.target.value,
-          checked: !state.checkboxes[e.target.value].checked
+          checked: !(state.checkboxes as any)[e.target.value].checked
         }
       }
     });
@@ -72,7 +82,7 @@ const Search = () => {
     <>
       <div>Test</div>
       <form onSubmit={e => e.preventDefault()}>
-        {options.map(option => createCheckbox(option))}
+        {genres.map(genre => createCheckbox(genre))}
         <button type="submit">Search Near Me</button>
       </form>
       <List list={data} />
