@@ -16,30 +16,45 @@ interface stateOptions {
 
 const stateOptions: stateOptions = {
   checkboxes: genres.reduce(
-    (genreAgg, genre) => ({
-      ...genreAgg,
+    (acc, genre) => ({
+      ...acc,
       [genre]: {
         label: genre,
-        checked: false
-      }
+        checked: false,
+      },
     }),
     {}
-  )
+  ),
 };
 
 const Search = () => {
   const [state, updateState] = useState(stateOptions);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const selectAll = (isSelected: boolean) => {
+    Object.keys(state.checkboxes).forEach((item) => {
+      updateState((prevState) => ({
+        checkboxes: {
+          ...prevState.checkboxes,
+          [item]: {
+            label: item,
+            checked: isSelected,
+          },
+        },
+      }));
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<any>) => {
+    console.log(e.target.value);
     updateState({
       ...state,
       checkboxes: {
         ...state.checkboxes,
         [e.target.value]: {
           label: e.target.value,
-          checked: !(state.checkboxes as any)[e.target.value].checked
-        }
-      }
+          checked: !(state.checkboxes as any)[e.target.value].checked,
+        },
+      },
     });
   };
 
@@ -61,7 +76,7 @@ const Search = () => {
 
   const sortParams = (checkboxes: any) => {
     const filters = Object.keys(checkboxes).filter(
-      checkbox => state.checkboxes[checkbox].checked
+      (checkbox) => state.checkboxes[checkbox].checked
     );
     const reduce = filters.reduce((acc, filter) => {
       return acc === ""
@@ -81,8 +96,14 @@ const Search = () => {
   return (
     <>
       <div>Test</div>
-      <form onSubmit={e => e.preventDefault()}>
-        {genres.map(genre => createCheckbox(genre))}
+      <form onSubmit={(e) => e.preventDefault()}>
+        {genres.map((genre) => createCheckbox(genre))}
+        <button type="button" value="All" onClick={() => selectAll(true)}>
+          All
+        </button>
+        <button type="button" value="All" onClick={() => selectAll(false)}>
+          None
+        </button>
         <button type="submit">Search Near Me</button>
       </form>
       <List list={data} />
