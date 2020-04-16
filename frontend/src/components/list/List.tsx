@@ -1,13 +1,26 @@
 import React, { FunctionComponent } from "react";
 
-interface ListProps {
-  list: any;
+interface gigData {
+  id: number;
+  genre: Array<string>;
+  artistName: string;
+  address: {
+    street: string;
+    suburb: string;
+    postCode: number;
+  };
+  price: number;
+  venue: string;
 }
 
-const List: FunctionComponent<ListProps> = ({ list }) => {
+interface gigListProps {
+  list: Array<gigData>;
+}
+
+const List: FunctionComponent<gigListProps> = ({ list }) => {
   return (
     <div>
-      <ul>
+      <ul data-testid="gigList-ul">
         {list.map((listing: any) => (
           <li>{`${listing.venue} + ${listing.artistName}`}</li>
         ))}
