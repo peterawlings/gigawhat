@@ -1,0 +1,55 @@
+# Yoga Server part
+# This looks like it's commented out but it's actually importing all types from the file
+#import * from './generated/prisma.graphql'
+
+# Whenever you add something to a Mutation or Query you need to add the corresponding resolver
+
+type SuccessMessage {
+  message: String
+}
+
+type Mutation {
+  # We don't have to define the `Item` type in this file. It's already defined in `prisma.graphql` so importing all from that file as above finds the `Item` type in there
+  createItem(
+    title: String
+    description: String
+    price: Int
+    image: String
+    largeImage: String
+  ): Item! # Return Item
+  updateItem(id: ID!, title: String, description: String, price: Int): Item!
+  deleteItem(id: ID!): Item!
+  signup(name: String!, email: String!, password: String!): User! # User is specified in prisma.graphql because we created it in the datamodel. It return that 'shape' of data specified
+  signin(email: String!, password: String!): User!
+  # When you just want to perform an operation and return a message - we don't need to accept or return anything for this type
+  signout: SuccessMessage
+  resetRequest(email: String!): SuccessMessage
+  resetPassword(
+    resetToken: String!
+    password: String!
+    confirmPassword: String!
+  ): User!
+  updatePermissions(permissions: [Permission], id: ID!): User
+}
+
+type Query {
+  # Modify the items query so we can pass in arguments from the front end
+  items(
+    where: ItemWhereInput
+    orderBy: ItemOrderByInput
+    skip: Int
+    first: Int
+  ): [Item]!
+  item(where: ItemWhereUniqueInput!): Item
+  itemsConnection(where: ItemWhereInput): ItemConnection! # Data about the items
+  me: User # Query to get the logged in user - not required as there may not be anyone logged in
+  users: [User]! # Bang is because the array needs to be returned but it might be empty
+}
+
+#Redinfing user from prisma.graphql do we can hide resetToken from front end and keep as a backend operation
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  permissions: [Permission!]!
+}
