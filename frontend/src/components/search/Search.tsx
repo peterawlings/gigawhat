@@ -90,6 +90,8 @@ const Search = () => {
     ? sortParams(state.checkboxes)
     : "All";
 
+  console.log({ queryParams });
+
   const { data, error } = useSWR(queryParams, fetcher);
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
@@ -110,5 +112,7 @@ const Search = () => {
     </>
   );
 };
+
+// TODO: Separate <List> from Search so they can be tested separately
 
 export default Search;

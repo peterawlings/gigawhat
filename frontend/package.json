@@ -31,6 +31,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "fetch-mock": "^9.4.0",
     "jest": "^25.3.0",
     "typescript": "^3.8.3"
   },

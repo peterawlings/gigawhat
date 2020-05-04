@@ -22,7 +22,7 @@ const List: FunctionComponent<gigListProps> = ({ list }) => {
     <div>
       <ul data-testid="gigList-ul">
         {list.map((listing: any) => (
-          <li>{`${listing.venue} + ${listing.artistName}`}</li>
+          <li key={listing.id}>{`${listing.venue} + ${listing.artistName}`}</li>
         ))}
       </ul>
     </div>
